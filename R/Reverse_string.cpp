@@ -2,6 +2,7 @@
 // https://practice.geeksforgeeks.org/problems/reverse-a-string/1
 // Aman Kumar
 
+// Using stack
 string reverseWord(string str)
 {
     stack<char> stk ;
@@ -19,4 +20,17 @@ string reverseWord(string str)
         stk.pop() ;
     }
     return ret ;
+}
+
+// In place
+string reverseWord(string str)
+{
+    int len = str.length() ;
+    for( int i = 0 ; i < len/2 ; i++ )
+    {
+        int temp = str[i] ;
+        str[i] = str[len-i-1] ;
+        str[len-i-1] = temp ;
+    }
+    return str ;
 }
