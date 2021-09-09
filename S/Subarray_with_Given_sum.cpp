@@ -7,7 +7,6 @@ vector<int> subarraySum(int arr[], int n, int s)
     vector<int> ret ;
 
     bool found = 0 ;
-    int cstart = 0, cend = 0 ;
 
     int currsum = 0 ;
 
