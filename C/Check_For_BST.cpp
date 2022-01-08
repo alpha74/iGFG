@@ -2,29 +2,19 @@
 // https://practice.geeksforgeeks.org/problems/check-for-bst/1/
 // Aman Kumar
 
-bool checkBST(Node *root, int left, int right)
+bool checkBST(Node *root, Node* left, Node* right)
 {
     if( root == NULL )
         return true ;
-    
-    if( root -> data <= left || root -> data >= right )
-        return false ;
-    
-    bool ret = true ;
-    
-    // Left sub tree
-    ret = ret & ( checkBST( root -> left, left, root -> data )) ;
-    // Right sub tree
-    ret = ret & ( checkBST( root -> right, root -> data, right )) ;
-    return ret ;
-}
 
-class Solution
+    if( left != NULL && root -> data <= left -> data )
+        return false ;
+    if( right != NULL && root -> data >= right -> data) 
+        return false ;
+
+    return checkBST(root->left, left,root) && checkBST(root->right, root, right) ;
+}
+bool isBST(Node* root) 
 {
-    public:
-    //Function to check whether a Binary Tree is BST or not.
-    bool isBST(Node* root) 
-    {
-        return checkBST(root, INT_MIN, INT_MAX );
-    }
-};
+    return checkBST(root, NULL, NULL );
+}
