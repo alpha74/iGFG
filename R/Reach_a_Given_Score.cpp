@@ -2,6 +2,7 @@
 // https://practice.geeksforgeeks.org/problems/reach-a-given-score-1587115621/1
 // Aman Kumar
 
+// Method 1
 long long int count(long long int n)
 {
 	if( n == 0 )
@@ -30,3 +31,28 @@ long long int count(long long int n)
 	 
 	 return ways ;
 }
+
+
+// Method 2: O(n) and space O(n)
+ll count(ll n) 
+{
+    vector<int> hash(1001,0) ;
+    
+    if( n == 0 )
+        return 1 ;
+    
+    hash[0] = 1 ;
+    
+    for( int i = 3 ; i <= n ; i++ )
+        hash[i] += hash[i-3] ;
+    
+    for( int i = 5 ; i <= n ; i++ )
+        hash[i] += hash[i-5] ;
+    
+    for( int i = 10 ; i <= n ; i++ )
+        hash[i] += hash[i-10] ;
+    
+    
+    return hash[n] ;
+}
+
