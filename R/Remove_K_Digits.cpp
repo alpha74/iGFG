@@ -1,4 +1,4 @@
-// Remove K digits from a given number string and return minimum number
+// Remove K digits from a given number string and return minimum number. Changing order of digits is not allowed.
 // https://practice.geeksforgeeks.org/problems/remove-k-digits/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
 // Aman Kumar
 
